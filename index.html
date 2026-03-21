@@ -1,0 +1,1301 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>history.scrollRestoration = 'manual';</script>
+<title>Michael Zariatskii — Motion Designer & Editor</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR4nGIAAQAABQABDQottAAAAABJRU5ErkJggg==">
+<style>
+
+/* ══════════════════════════════════════════════
+   FONTS
+══════════════════════════════════════════════ */
+
+@font-face {
+  font-family: 'PPEditorialNew';
+  src: url('editorial-new-font-family/PPEditorialNew-UltralightItalic-BF644b214ff1e9b.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PPEditorialNew';
+  src: url('editorial-new-font-family/PPEditorialNew-Ultralight-BF644b21500d0c0.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PPEditorialNew';
+  src: url('editorial-new-font-family/PPEditorialNew-Italic-BF644b214fb0c0a.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PPEditorialNew';
+  src: url('editorial-new-font-family/PPEditorialNew-Regular-BF644b214ff145f.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ABCDiatype';
+  src: url('diatype-font-family/ABCDiatype-Thin-Trial.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ABCDiatype';
+  src: url('diatype-font-family/ABCDiatype-Light-Trial.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ABCDiatype';
+  src: url('diatype-font-family/ABCDiatype-Regular-Trial.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ABCDiatype';
+  src: url('diatype-font-family/ABCDiatype-Medium-Trial.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ABCDiatype';
+  src: url('diatype-font-family/ABCDiatype-Bold-Trial.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ══════════════════════════════════════════════
+   TOKENS
+══════════════════════════════════════════════ */
+
+:root {
+  --accent:        #306CEC;
+  --bg:            #FDFDFD;
+  --text:          #0A0A0A;
+  --muted:         #888888;
+  --footer-bg:     #F3F3F3;
+  --card-radius:   45px;
+  --nav-h:         64px;
+  --badge-red:     #E8392A;
+}
+
+/* ══════════════════════════════════════════════
+   RESET
+══════════════════════════════════════════════ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  font-family: 'ABCDiatype', system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { text-decoration: none; color: inherit; }
+img { display: block; }
+ul { list-style: none; }
+
+/* ── Page-width cap — locks layout to 1440px design spec ── */
+body {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ══════════════════════════════════════════════
+   NAV
+══════════════════════════════════════════════ */
+
+.nav {
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 240px;
+  background: var(--bg);
+  margin-top: 24px;
+}
+
+.nav-logo {
+  font-family: 'ABCDiatype', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  transition: color 150ms ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* ══════════════════════════════════════════════
+   BUTTON — PILL
+══════════════════════════════════════════════ */
+
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 24px;
+  background: var(--accent);
+  color: #fff;
+  font-family: 'ABCDiatype', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  transition: transform 250ms cubic-bezier(0.34, 1.4, 0.64, 1),
+              background-color 200ms ease;
+}
+
+.btn-pill:hover {
+  transform: translateY(-2px);
+  background-color: #4a7ff0;
+}
+
+.btn-pill.btn-lg {
+  height: 48px;
+  padding: 0 32px;
+  font-size: 15px;
+}
+
+/* ══════════════════════════════════════════════
+   HERO
+══════════════════════════════════════════════ */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 96px 240px 0;
+  gap: 0;
+}
+
+.hero-title {
+  font-family: 'PPEditorialNew', Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 100px;
+  line-height: 1.05;
+  color: var(--accent);
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+.hero-sub {
+  font-family: 'ABCDiatype', sans-serif;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1.09;
+  letter-spacing: -0.04em;
+  color: var(--text);
+  text-align: center;
+  margin-top: 16px;
+}
+
+.hero-sub .inline-img {
+  display: inline-block;
+  height: 64px;
+  width: auto;
+  border-radius: 12px;
+  vertical-align: middle;
+  margin: 0 8px;
+  object-fit: cover;
+  position: relative;
+  top: var(--img-y, 0px);
+  left: var(--img-x, 0px);
+}
+
+/* ── INLINE IMAGE POSITION CONTROLLERS ────────────────────────────────────
+   --img-x : сдвиг по горизонтали
+   --img-y : сдвиг по вертикали (+ = вниз, - = вверх)
+   ────────────────────────────────────────────────────────────────────────── */
+img[src*="green_project"] { --img-x: -6px; --img-y: 0px; }
+img[src*="casio_cam"]     { --img-x: 0px; --img-y: 0px; }
+img[src*="cn_tower"]      { --img-x: -8px; --img-y: 0px; }
+
+/* ════ ТЕНИ НА ФОТКАХ В HERO ════
+   Формат: drop-shadow(↔ X  ↕ Y  blur  rgba(0,0,0, opacity))
+   Apple стиль: drop-shadow(0px 2px 4px rgba(0,0,0,0.10)) drop-shadow(0px 8px 20px rgba(0,0,0,0.08))
+   Убрать тень: drop-shadow(0px 0px 0px rgba(0,0,0,0))                                              */
+
+/* ── Зелёный проект — «Motion Designer» ── */
+img[src*="green_project"] { filter: drop-shadow(0px 0px 0px rgba(0,0,0,0)); }
+
+/* ── Камера — «and Editor» ── */
+img[src*="casio_cam"]     { filter: drop-shadow(0px 0px 0px rgba(0,0,0,0)); }
+
+/* ── CN / Toronto ── */
+img[src*="cn_tower"]      { filter: drop-shadow(0px 0px 0px rgba(0,0,0,0)); }
+
+/* ══════════════════════════════════════════════
+   DOCK (embedded)
+══════════════════════════════════════════════ */
+
+@keyframes dockReveal {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.dock-wrap {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  padding: 14px 20px 10px;
+  background: rgba(230, 230, 230, 0.82);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 24px;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.09),
+    0 8px 32px rgba(0, 0, 0, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  animation: dockReveal 0.55s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+  animation-delay: 0.08s;
+  overflow: visible;
+  margin-top: 61px;
+}
+
+.dock-wrap { --tip-offset: 30px; }
+
+.dock-tooltip {
+  position: absolute;
+  bottom: calc(100% + var(--tip-offset));
+  left: 50%;
+  transform: translateX(-50%) translate(var(--tip-x, 0px), var(--tip-y, 0px)) scale(var(--tip-scale, 1));
+  background: rgba(28, 28, 28, 0.88);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 9px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 120ms ease;
+  letter-spacing: 0.01em;
+  font-family: 'ABCDiatype', sans-serif;
+}
+
+.dock-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.icon-frame {
+  width: 93px;
+  height: 93px;
+  margin: -29px -15px 0px -15px; /* pull frame up so bottom stays at same position; no bottom pull on dots */
+  border-radius: 20px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+  z-index: 2;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.18));
+  transition: transform 220ms cubic-bezier(0.34, 1.4, 0.64, 1);
+  will-change: transform;
+  transform-origin: center bottom;
+}
+
+.icon-frame img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+.dock-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.28);
+  flex-shrink: 0;
+  z-index: 1;
+  transition: transform 220ms cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+/* ── Hover state ── */
+.dock-item.hovered              { z-index: 10; }
+.dock-item.hovered .icon-frame  { transform: translate(var(--active-x, 0px), var(--active-y, -16px)) scale(var(--active-scale-x, 1.0), var(--active-scale-y, 1.0)) !important; }
+.dock-item.hovered .dock-dot    { transform: translateY(-36px); }
+
+/* ── Per-icon active state ── */
+[data-label="Adobe After Effects"] { --active-x: 0px;  --active-y: -14px; --active-scale-x: 1.0;  --active-scale-y: 1.0;  }
+[data-label="Adobe Premiere Pro"]  { --active-x: 0px;  --active-y: -14px; --active-scale-x: 1.0;  --active-scale-y: 1.0;  }
+[data-label="Cinema 4D"]           { --active-x: 0px;  --active-y: -13px; --active-scale-x: 1.0;  --active-scale-y: 1.0;  }
+[data-label="Adobe Photoshop"]     { --active-x: 0px;  --active-y: -15px; --active-scale-x: 1.0;  --active-scale-y: 1.0;  }
+[data-label="Adobe Illustrator"]   { --active-x: 0px;  --active-y: -13px; --active-scale-x: 1.0;  --active-scale-y: 1.0;  }
+[data-label="Figma"]               { --active-x: 0px;  --active-y: -13px; --active-scale-x: 1.0;  --active-scale-y: 1.0;  }
+[data-label="Octane Render"]       { --active-x: 0px;  --active-y: -18px; --active-scale-x: 1.0;  --active-scale-y: 0.966; }
+
+/* ── Per-icon resting state — base scale 0.688 = 64px÷93px (render big, show small) ── */
+[data-label="Adobe After Effects"] .icon-frame { transform: translate(0px,  0px)  scale(0.688, 0.688); }
+[data-label="Adobe Premiere Pro"]  .icon-frame { transform: translate(0px,  0px)  scale(0.688, 0.688); }
+[data-label="Cinema 4D"]           .icon-frame { transform: translate(0px,  0px)  scale(0.688, 0.688); }
+[data-label="Adobe Photoshop"]     .icon-frame { transform: translate(0px,  1px)  scale(0.688, 0.699); }
+[data-label="Adobe Illustrator"]   .icon-frame { transform: translate(-1px, 0px)  scale(0.688, 0.688); }
+[data-label="Figma"]               .icon-frame { transform: translate(-1px, 0px)  scale(0.688, 0.688); }
+[data-label="Octane Render"]       .icon-frame { transform: translate(-1px, -2px) scale(0.688, 0.671); }
+
+/* ── Per-icon tooltip position ── */
+[data-label="Adobe After Effects"] { --tip-x: 0px; --tip-y: 0px; --tip-scale: 1; }
+[data-label="Adobe Premiere Pro"]  { --tip-x: 0px; --tip-y: 0px; --tip-scale: 1; }
+[data-label="Cinema 4D"]           { --tip-x: 0px; --tip-y: 0px; --tip-scale: 1; }
+[data-label="Adobe Photoshop"]     { --tip-x: 0px; --tip-y: 0px; --tip-scale: 1; }
+[data-label="Adobe Illustrator"]   { --tip-x: 0px; --tip-y: 0px; --tip-scale: 1; }
+[data-label="Figma"]               { --tip-x: 0px; --tip-y: 0px; --tip-scale: 1; }
+[data-label="Octane Render"]       { --tip-x: 0px; --tip-y: 0px; --tip-scale: 1; }
+
+/* ══════════════════════════════════════════════
+   SECTION CONTAINER
+══════════════════════════════════════════════ */
+
+.section {
+  padding: 0 240px;
+}
+
+#projects {
+  margin-top: 106px;
+}
+
+#clients {
+  margin-top: 106px;
+}
+
+.section-label {
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-left: 43px;
+  margin-bottom: 58px;
+}
+
+/* ══════════════════════════════════════════════
+   CARD — shared
+══════════════════════════════════════════════ */
+
+.card {
+  position: relative;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  display: block;
+  cursor: pointer;
+  isolation: isolate;
+  /* filter creates its own compositing layer — fixes border-radius clip + enables drop-shadow */
+}
+
+.card-large { aspect-ratio: 2 / 1; }
+.card-small { aspect-ratio: 1 / 1; }
+
+.card-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center; /* позиция фото по умолчанию — переопределяется per-card */
+  display: block;
+  will-change: transform;
+  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), filter 300ms ease;
+  filter: brightness(1);
+}
+
+.card:hover .card-cover {
+  transform: scale(1.04);
+  filter: brightness(0.75);
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.76) 0%,
+    rgba(0, 0, 0, 0.10) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.card-info {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.card-info h3 {
+  font-family: 'ABCDiatype', sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.15;
+}
+
+.card-info p {
+  font-family: 'ABCDiatype', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.60);
+  margin-top: 16px;
+  line-height: 1.2;
+}
+
+.card-arrow {
+  position: absolute;
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0A0A0A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: background 240ms ease, color 240ms ease, transform 300ms cubic-bezier(0.34, 1.4, 0.64, 1);
+  flex-shrink: 0;
+  z-index: 2;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.09);
+}
+
+.card-arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+.card:hover .card-arrow,
+.client-card:hover .card-arrow {
+  background: var(--accent);
+  color: #fff;
+  transform: translate(4px, -4px);
+}
+
+/* ════════════════════════════════════════════════════
+   ТЕНИ — drop-shadow(↔ X  ↕ Y  blur  rgba(0,0,0, opacity))
+   opacity: 0.25 = 25%  /  увеличь blur или opacity чтобы было заметнее
+════════════════════════════════════════════════════ */
+
+/* Apple HIG: два слоя — контактная (ближняя, резче) + атмосферная (дальняя, мягче)
+   drop-shadow(X  Y  blur  color)  можно задать два через пробел */
+
+/* ── Showreel 2026 ── */
+#card-showreel { filter: drop-shadow(0px 2px 5px rgba(0,0,0,0.14)) drop-shadow(0px 9px 22px rgba(0,0,0,0.11)); }
+
+/* ── Casio XCP-2101 ── */
+#card-casio    { filter: drop-shadow(0px 2px 5px rgba(0,0,0,0.14)) drop-shadow(0px 9px 22px rgba(0,0,0,0.11)); }
+
+/* ── Revenge ── */
+#card-revenge  { filter: drop-shadow(0px 2px 5px rgba(0,0,0,0.14)) drop-shadow(0px 9px 22px rgba(0,0,0,0.11)); }
+
+/* ── Leonid Kim MD ── */
+#card-leo      { filter: drop-shadow(0px 2px 5px rgba(0,0,0,0.14)) drop-shadow(0px 9px 22px rgba(0,0,0,0.11)); }
+
+/* ── Humphrey Yang ── */
+#card-humphrey { filter: drop-shadow(0px 2px 5px rgba(0,0,0,0.14)) drop-shadow(0px 9px 22px rgba(0,0,0,0.11)); }
+
+/* ── Jeff Nippard ── */
+#card-jeff     { filter: drop-shadow(0px 2px 5px rgba(0,0,0,0.14)) drop-shadow(0px 9px 22px rgba(0,0,0,0.11)); }
+
+/* ════════════════════════════════════════════════════
+   КОНТРОЛЛЕРЫ ПОЗИЦИИ — ПРОЕКТНЫЕ КАРТОЧКИ
+   bottom / left  → подпись (отступ от низа и левого края)
+   top   / right  → стрелка (отступ от верха и правого края)
+════════════════════════════════════════════════════ */
+
+/* ── Showreel 2026 ── */
+#card-showreel .card-info  { bottom: 42px; left: 39px; }
+#card-showreel .card-arrow { top: 29px; right: 29px; } /* ↕ top  ↔ right */
+
+/* ── Casio XCP-2101 ── */
+#card-casio .card-info  { bottom: 46px; left: 39px; }
+#card-casio .card-arrow { top: 29px; right: 29px; } /* ↕ top  ↔ right */
+
+/* ── Revenge ── */
+#card-revenge .card-info  { bottom: 46px; left: 39px; }
+#card-revenge .card-arrow { top: 29px; right: 29px; } /* ↕ top  ↔ right */
+
+/* ══════════════════════════════════════════════
+   PROJECTS
+══════════════════════════════════════════════ */
+
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.projects-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ══════════════════════════════════════════════
+   CLIENTS
+══════════════════════════════════════════════ */
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.client-card {
+  position: relative;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+  isolation: isolate;
+  pointer-events: auto; /* override .reveal opacity:0 so card is always clickable */
+  /* filter creates its own compositing layer — fixes border-radius clip + enables drop-shadow */
+}
+
+.client-card {
+  aspect-ratio: 1 / 1;
+}
+
+.client-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  will-change: transform;
+  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), filter 300ms ease;
+  filter: brightness(1);
+  /* scale(1.15) даёт запас ~7% в каждую сторону для сдвига лица */
+  transform: translate(var(--img-x, 0%), var(--img-y, 0%)) scale(1.15);
+}
+
+.client-card:hover img {
+  transform: translate(var(--img-x, 0%), var(--img-y, 0%)) scale(1.19);
+  filter: brightness(0.75);
+}
+
+.client-badge {
+  position: absolute;
+  width: 102px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FF0000;
+  color: #fff;
+  font-family: 'ABCDiatype', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  border-radius: 100px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.client-info {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ════════════════════════════════════════════════════
+   КОНТРОЛЛЕРЫ ПОЗИЦИИ — КАРТОЧКИ КЛИЕНТОВ
+   badge:  top    = от верха карточки ↕   left = от левого края ↔
+   info:   bottom = от низа карточки  ↕   left = от левого края ↔
+════════════════════════════════════════════════════ */
+
+/* ── Leonid Kim MD ── */
+#card-leo .client-badge { top: 29px; left: 25px; }
+#card-leo .client-info  { bottom: 34px; left: 28px; }
+#card-leo .card-arrow   { top: 28px; right: 25px; }
+
+/* ── Humphrey Yang ── */
+#card-humphrey .client-badge { top: 29px; left: 25px; }
+#card-humphrey .client-info  { bottom: 34px; left: 28px; }
+#card-humphrey .card-arrow   { top: 28px; right: 25px; }
+
+/* ── Jeff Nippard ── */
+#card-jeff .client-badge { top: 29px; left: 25px; }
+#card-jeff .client-info  { bottom: 34px; left: 28px; }
+#card-jeff .card-arrow   { top: 28px; right: 25px; }
+
+/* ════════════════════════════════════════════════════
+   ПОЗИЦИЯ ФОТО ВНУТРИ КАРТОЧКИ
+   Формат: object-position: X%  Y%
+
+   ← влево   = X меньше 50%   (напр. 30%)
+   → вправо  = X больше 50%   (напр. 70%)
+   ↑ вверх   = Y меньше 50%   (напр. 20%)
+   ↓ вниз    = Y больше 50%   (напр. 80%)
+
+   50% 50% = мёртвый центр
+════════════════════════════════════════════════════ */
+
+/* ── Showreel 2026 ──   ← X →    ↑ Y ↓  */
+#card-showreel .card-cover { object-position: 50%   50%; }
+
+/* ── Casio XCP-2101 ──  ← X →    ↑ Y ↓  */
+#card-casio .card-cover    { object-position: 50%   50%; }
+
+/* ── Revenge ──         ← X →    ↑ Y ↓  */
+#card-revenge .card-cover  { object-position: 50%   50%; }
+
+/* ── Leonid Kim MD ──   → X (+) вправо / (-) влево    ↓ Y (+) вниз / (-) вверх  */
+#card-leo      { --img-x: 0%;  --img-y: 5%; }
+
+/* ── Humphrey Yang ──   → X (+) вправо / (-) влево    ↓ Y (+) вниз / (-) вверх  */
+#card-humphrey { --img-x: 0%;  --img-y: 0%; }
+
+/* ── Jeff Nippard ──    → X (+) вправо / (-) влево    ↓ Y (+) вниз / (-) вверх  */
+#card-jeff     { --img-x: 0%;  --img-y: 0%; }
+
+/* ════════════════════════════════════════════════════
+   КОНТРОЛЛЕРЫ ЗАГОЛОВКА (h3) — translate(↔ X, ↕ Y)
+════════════════════════════════════════════════════ */
+
+/* ── Showreel 2026 ── */
+#card-showreel .card-info h3 { transform: translate(0px, 15px); } /* ↔ 0px  ↕ 0px */
+
+/* ── Casio XCP-2101 ── */
+#card-casio .card-info h3    { transform: translate(0px, 15px); } /* ↔ 0px  ↕ 0px */
+
+/* ── Revenge ── */
+#card-revenge .card-info h3  { transform: translate(0px, 15px); } /* ↔ 0px  ↕ 0px */
+
+/* ── Leonid Kim MD ── */
+#card-leo .client-info h3    { transform: translate(0px, 15px); } /* ↔ 0px  ↕ 0px */
+
+/* ── Humphrey Yang ── */
+#card-humphrey .client-info h3 { transform: translate(0px, 15px); } /* ↔ 0px  ↕ 0px */
+
+/* ── Jeff Nippard ── */
+#card-jeff .client-info h3   { transform: translate(0px, 15px); } /* ↔ 0px  ↕ 0px */
+
+/* ════════════════════════════════════════════════════
+   КОНТРОЛЛЕРЫ ПОДЗАГОЛОВКА (p) — translate(↔ X, ↕ Y)
+════════════════════════════════════════════════════ */
+
+/* ── Showreel 2026 ── */
+#card-showreel .card-info p  { transform: translate(0px, 0px); } /* ↔ 0px  ↕ 0px */
+
+/* ── Casio XCP-2101 ── */
+#card-casio .card-info p     { transform: translate(0px, 0px); } /* ↔ 0px  ↕ 0px */
+
+/* ── Revenge ── */
+#card-revenge .card-info p   { transform: translate(0px, 0px); } /* ↔ 0px  ↕ 0px */
+
+/* ── Leonid Kim MD ── */
+#card-leo .client-info p     { transform: translate(0px, 0px); } /* ↔ 0px  ↕ 0px */
+
+/* ── Humphrey Yang ── */
+#card-humphrey .client-info p { transform: translate(0px, 0px); } /* ↔ 0px  ↕ 0px */
+
+/* ── Jeff Nippard ── */
+#card-jeff .client-info p    { transform: translate(0px, 0px); } /* ↔ 0px  ↕ 0px */
+
+.client-info h3 {
+  font-family: 'ABCDiatype', sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.client-info p {
+  font-family: 'ABCDiatype', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.62);
+  margin-top: 13px;
+  line-height: 1.2;
+}
+
+/* ══════════════════════════════════════════════
+   CTA
+══════════════════════════════════════════════ */
+
+.cta {
+  margin-top: 105px;
+  padding: 0 240px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.cta-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  text-decoration: none;
+  font-family: 'ABCDiatype', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  opacity: 0.55;
+  transition: opacity 150ms ease;
+}
+.cta-email:hover { opacity: 0.85; }
+
+.cta-copy-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  opacity: 0.4;
+  transition: opacity 150ms ease;
+  color: var(--text);
+}
+.cta-copy-btn:hover { opacity: 0.75; }
+
+.cta-copy-toast {
+  font-family: 'ABCDiatype', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+}
+.cta-copy-toast.show { opacity: 1; }
+
+.cta-title {
+  font-family: 'ABCDiatype', sans-serif;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 1.09;
+  letter-spacing: -0.04em;
+  color: var(--accent);
+}
+
+/* ══════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════ */
+
+.footer-wrap {
+  margin-top: 105px;
+  padding: 0 240px 48px;
+}
+
+.footer {
+  background: var(--footer-bg);
+  border-radius: 20px;
+  padding: 40px 65px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  column-gap: 0;
+  align-items: start;
+  border: 1px solid rgba(0, 0, 0, 0.11);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.09);
+}
+
+.footer-copy {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.7;
+  white-space: nowrap;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 2px;
+  padding-left: 103px;
+}
+
+.footer-nav a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  transition: color 150ms ease;
+}
+
+.footer-nav a:hover {
+  color: var(--accent);
+}
+
+.footer-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 110px;
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: opacity 150ms ease;
+}
+
+.social-item:hover {
+  opacity: 0.7;
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.social-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.social-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.social-url {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.footer-location {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.7;
+  text-align: left;
+  padding-left: 93px;
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════════════ */
+
+/* Hero entrance */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); filter: blur(5px); }
+  to   { opacity: 1; transform: translateY(0);    filter: blur(0px); }
+}
+@keyframes fadeUpSimple {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-anim {
+  /* blur завершается на 150ms раньше чтобы не было рывка в конце */
+  animation: fadeUp 1000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--anim-delay, 0ms);
+}
+
+/* Nav uses no blur — blur on a bg element causes glitch on first paint */
+.hero-anim-simple {
+  animation: fadeUpSimple 1000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--anim-delay, 0ms);
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  filter: blur(4px);
+  transition:
+    opacity   900ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter    650ms cubic-bezier(0.22, 1, 0.36, 1); /* blur чуть быстрее */
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0px);
+}
+
+/* Dock hint — анимируем dock-item целиком, не icon-frame */
+@keyframes dockItemHint {
+  0%   { transform: translateY(0);    }
+  40%  { transform: translateY(-9px); }
+  100% { transform: translateY(0);    }
+}
+.dock-hint-anim {
+  animation: dockItemHint 800ms cubic-bezier(0.34, 1.4, 0.64, 1) both;
+  animation-delay: var(--hint-delay, 0ms);
+}
+
+
+</style>
+</head>
+<body>
+
+<div id="about"></div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav class="nav hero-anim-simple" style="--anim-delay:0ms">
+  <a href="#about" class="nav-logo">2026</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#clients">Clients</a></li>
+  </ul>
+  <a href="https://www.linkedin.com/in/mikhail-zariatskii/" target="_blank" rel="noopener" class="btn-pill">Connect</a>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+
+  <h1 class="hero-title hero-anim" style="--anim-delay:100ms">Michael Zariatskii</h1>
+
+  <p class="hero-sub hero-anim" style="--anim-delay:220ms">
+    Motion Designer <img class="inline-img" src="img/green_project_3d_reel.png" alt=""><br>
+    and Editor <img class="inline-img" src="img/casio_cam.png" alt=""> with<br>
+    2 years of experience<br>
+    based in Toronto <img class="inline-img" src="cn_tower.png" alt="">
+  </p>
+
+  <!-- DOCK -->
+  <div class="dock-wrap hero-anim" id="dock" style="--anim-delay:360ms">
+
+    <div class="dock-tooltip" id="dock-tooltip"></div>
+
+    <div class="dock-item" data-label="Adobe After Effects">
+      <div class="icon-frame"><img src="CLEAN ICONS_BAR/AFTER EFFECTS.png" alt="After Effects"></div>
+      <div class="dock-dot"></div>
+    </div>
+
+    <div class="dock-item" data-label="Adobe Premiere Pro">
+      <div class="icon-frame"><img src="CLEAN ICONS_BAR/PREMIERE.png" alt="Premiere Pro"></div>
+      <div class="dock-dot"></div>
+    </div>
+
+    <div class="dock-item" data-label="Cinema 4D">
+      <div class="icon-frame"><img src="CLEAN ICONS_BAR/C4D.png" alt="Cinema 4D"></div>
+      <div class="dock-dot"></div>
+    </div>
+
+    <div class="dock-item" data-label="Adobe Photoshop">
+      <div class="icon-frame"><img src="CLEAN ICONS_BAR/PS.png" alt="Photoshop"></div>
+      <div class="dock-dot"></div>
+    </div>
+
+    <div class="dock-item" data-label="Adobe Illustrator">
+      <div class="icon-frame"><img src="CLEAN ICONS_BAR/ILL.png" alt="Illustrator"></div>
+      <div class="dock-dot"></div>
+    </div>
+
+    <div class="dock-item" data-label="Figma">
+      <div class="icon-frame"><img src="CLEAN ICONS_BAR/FIGMA.png" alt="Figma"></div>
+      <div class="dock-dot"></div>
+    </div>
+
+    <div class="dock-item" data-label="Octane Render">
+      <div class="icon-frame"><img src="CLEAN ICONS_BAR/OCTANE.png" alt="Octane Render"></div>
+      <div class="dock-dot"></div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ═══════════ PROJECTS ═══════════ -->
+<section class="section" id="projects">
+  <p class="section-label reveal">Projects</p>
+  <div class="projects-grid">
+
+    <a href="https://vimeo.com/1006457464" target="_blank" rel="noopener" class="card card-large reveal" id="card-showreel" style="--reveal-delay:80ms">
+      <img class="card-cover" src="just%20imgs_/showreel_clean.png" alt="Showreel 2026">
+      <div class="card-overlay"></div>
+      <div class="card-info">
+        <h3>Showreel 2026</h3>
+        <p>Personal &amp; professional projects</p>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </a>
+
+    <div class="projects-row">
+      <a href="https://vimeo.com/1003852101?fl=pl&fe=sh" target="_blank" rel="noopener" class="card card-small reveal" id="card-casio" style="--reveal-delay:0ms">
+        <img class="card-cover" src="just%20imgs_/casio.png" alt="Casio XCP-2101">
+        <div class="card-overlay"></div>
+        <div class="card-info">
+          <h3>Casio XCP-2101</h3>
+          <p>Commercial</p>
+        </div>
+        <div class="card-arrow">
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </a>
+      <a href="https://www.behance.net/gallery/157161795/Revenge-Title-Sequence" target="_blank" rel="noopener" class="card card-small reveal" id="card-revenge" style="--reveal-delay:120ms">
+        <img class="card-cover" src="just%20imgs_/revenge_clear.png" alt="Revenge">
+        <div class="card-overlay"></div>
+        <div class="card-info">
+          <h3>Revenge</h3>
+          <p>Title Sequence</p>
+        </div>
+        <div class="card-arrow">
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ CLIENTS ═══════════ -->
+<section class="section" id="clients">
+  <p class="section-label reveal">Clients</p>
+  <div class="clients-grid">
+
+    <a href="leo.html" class="client-card reveal" id="card-leo" style="--reveal-delay:0ms">
+      <img src="just%20imgs_/leo_clear.png" alt="Leonid Kim MD">
+      <div class="card-overlay"></div>
+      <div class="client-badge">600K</div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="client-info">
+        <h3>Leonid Kim MD</h3>
+        <p>Health</p>
+      </div>
+    </a>
+
+    <a href="humphrey.html" class="client-card reveal" id="card-humphrey" style="--reveal-delay:100ms">
+      <img src="just%20imgs_/clear.png" alt="Humphrey Yang">
+      <div class="card-overlay"></div>
+      <div class="client-badge">1.96M</div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="client-info">
+        <h3>Humphrey Yang</h3>
+        <p>Finance</p>
+      </div>
+    </a>
+
+    <a href="jeff.html" class="client-card reveal" id="card-jeff" style="--reveal-delay:200ms">
+      <img src="just%20imgs_/jeff_clear.png" alt="Jeff Nippard">
+      <div class="card-overlay"></div>
+      <div class="client-badge">8.2M</div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="client-info">
+        <h3>Jeff Nippard</h3>
+        <p>Fitness</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ═══════════ CTA ═══════════ -->
+<section class="cta reveal" id="contact">
+  <h2 class="cta-title">Ready to build<br>something amazing?</h2>
+  <a href="https://www.linkedin.com/in/mikhail-zariatskii/" target="_blank" rel="noopener" class="btn-pill btn-lg">Connect</a>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<div class="footer-wrap reveal" id="tools">
+  <footer class="footer">
+
+    <div class="footer-copy">
+      <p>© 2026 Michael Zariatskii</p>
+      <p>All rights reserved</p>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#clients">Clients</a>
+    </nav>
+
+    <div class="footer-socials">
+      <a href="mailto:mihailzaryackiy@gmail.com" class="social-item">
+        <img class="social-icon" src="img/gmail.png" alt="Gmail">
+        <div class="social-text">
+          <span class="social-name">Gmail</span>
+          <span class="social-url">mihailzaryackiy@gmail.com</span>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/mikhail-zariatskii/" target="_blank" rel="noopener" class="social-item">
+        <img class="social-icon" src="img/linkedin.png" alt="LinkedIn">
+        <div class="social-text">
+          <span class="social-name">LinkedIn</span>
+          <span class="social-url">linkedin.com/in/mikhail-zariatskii</span>
+        </div>
+      </a>
+      <a href="https://vimeo.com/mikhailzariackii" target="_blank" rel="noopener" class="social-item">
+        <img class="social-icon" src="img/vimeo.png" alt="Vimeo">
+        <div class="social-text">
+          <span class="social-name">Vimeo</span>
+          <span class="social-url">vimeo.com/mikhailzariackii</span>
+        </div>
+      </a>
+      <a href="https://www.behance.net/mikhailzariackii" target="_blank" rel="noopener" class="social-item">
+        <img class="social-icon" src="img/behance.png" alt="Behance">
+        <div class="social-text">
+          <span class="social-name">Behance</span>
+          <span class="social-url">behance.net/mikhailzariackii</span>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/watchmefal1/" target="_blank" rel="noopener" class="social-item">
+        <img class="social-icon" src="img/insta.png" alt="Instagram">
+        <div class="social-text">
+          <span class="social-name">Instagram</span>
+          <span class="social-url">instagram.com/watchmefal1</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="footer-location">
+      <p>Toronto, ON</p>
+      <p>Open to work</p>
+    </div>
+
+  </footer>
+</div>
+
+<!-- ═══════════ DOCK SCRIPT ═══════════ -->
+<script>
+  const dock    = document.getElementById('dock');
+  const tooltip = document.getElementById('dock-tooltip');
+  const items   = Array.from(dock.querySelectorAll('.dock-item'));
+
+  dock.addEventListener('mousemove', (e) => {
+    const mouseX   = e.clientX;
+    const dockRect = dock.getBoundingClientRect();
+
+    let closest     = null;
+    let closestDist = Infinity;
+
+    items.forEach((item) => {
+      const rect = item.getBoundingClientRect();
+      const cx   = rect.left + rect.width / 2;
+      const dist = Math.abs(mouseX - cx);
+      if (dist < closestDist) { closestDist = dist; closest = item; }
+    });
+
+    items.forEach((item) => item.classList.toggle('hovered', item === closest));
+
+    if (closest) {
+      const rect = closest.getBoundingClientRect();
+      const cx   = rect.left + rect.width / 2 - dockRect.left;
+      tooltip.textContent    = closest.dataset.label;
+      tooltip.style.left     = cx + 'px';
+      tooltip.style.opacity  = '1';
+
+      const cs = getComputedStyle(closest);
+      tooltip.style.setProperty('--tip-x',     cs.getPropertyValue('--tip-x').trim()     || '0px');
+      tooltip.style.setProperty('--tip-y',     cs.getPropertyValue('--tip-y').trim()     || '0px');
+      tooltip.style.setProperty('--tip-scale', cs.getPropertyValue('--tip-scale').trim() || '1');
+    }
+  });
+
+  dock.addEventListener('mouseleave', () => {
+    items.forEach(item => item.classList.remove('hovered'));
+    tooltip.style.opacity = '0';
+  });
+</script>
+
+<script>
+  /* ── Scroll reveal ── */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+
+  /* ── Dock hint: волна пока dock появляется ── */
+  const stagger = 75;
+  setTimeout(() => {
+    const dockItems = Array.from(dock.querySelectorAll('.dock-item'));
+    dockItems.forEach((item, i) => {
+      item.style.setProperty('--hint-delay', `${i * stagger}ms`);
+      item.classList.add('dock-hint-anim');
+    });
+    const totalDuration = (dockItems.length - 1) * stagger + 800 + 50;
+    setTimeout(() => {
+      dockItems.forEach(item => {
+        item.classList.remove('dock-hint-anim');
+        item.style.removeProperty('--hint-delay');
+      });
+    }, totalDuration);
+  }, 400);
+</script>
+
+<script>
+  document.querySelectorAll('a[href="#about"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
