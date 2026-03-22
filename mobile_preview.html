@@ -40,7 +40,7 @@
   /* ── Phone frame ── */
   .phone-wrap {
     position: relative;
-    width: 393px;
+    width: 407px;
     background: #111;
     border-radius: 50px;
     padding: 16px;
@@ -105,7 +105,7 @@
 
 <script>
   function load(page, btn) {
-    document.getElementById('frame').src = page;
+    document.getElementById('frame').src = page + '?t=' + Date.now();
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
   }

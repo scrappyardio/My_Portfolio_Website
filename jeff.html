@@ -51,7 +51,8 @@
 ══════════════════════════════════════════════ */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scrollbar-width: none; }
+html::-webkit-scrollbar { display: none; }
 body {
   background: var(--bg);
   font-family: 'ABCDiatype', system-ui, -apple-system, sans-serif;
@@ -636,13 +637,13 @@ ul { list-style: none; }
      ─────────────────────────────────────────────────────────────────── */
   .profile-card-wrap { width: 100%; height: auto; aspect-ratio: 1; }
   .inner-photo-rect  { height: calc(100% - 80px); }
-  .profile-photo     { top: 10px; width: calc(100% - 130px); }
-  .annual-views      { top: 10px; right: 10px; width: 110px; height: 100px; }
+  .profile-photo     { top: 55px; width: calc(115% - 130px); }
+  .annual-views      { top: 45px; right: 45px; width: 95px; height: 85px; }
   .av-value          { font-size: 28px; }
   .av-label          { font-size: 11px; }
   .profile-card-bottom { top: auto; bottom: 12px; }
-  .profile-sub-badge { width: 88px; height: 32px; font-size: 20px; --pill-x: 0px; --pill-y: 15px; }
-  .profile-name      { font-size: 22px; --name-x: 0px; --name-y: 12px; }
+  .profile-sub-badge { width: 74px; height: 26px; font-size: 16px; --pill-x: 0px; --pill-y: 12px; }
+  .profile-name      { font-size: 20px; --name-x: 0px; --name-y: 6px; }
 
   /* ── ГРАФИК ПОДПИСЧИКОВ ─────────────────────────────────────────────
      chart height : высота графика в пикселях
@@ -652,8 +653,8 @@ ul { list-style: none; }
      ─────────────────────────────────────────────────────────────────── */
   .chart-svg-wrap { position: relative; height: 140px; min-height: 140px; flex: none; }
   .chart-layer    { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: fill; }
-  .chart-160k     { top: 100px !important; left: 0 !important; }
-  .chart-dot      { width: 16px; height: 16px; --dot-top: -6px; --dot-right: 6px; }
+  .chart-lower    { top: 75px !important; left: 0 !important; }
+  .chart-dot      { width: 16px; height: 16px; --dot-top: -8px; --dot-right: -8px; }
   .chart-axis     { margin-top: 8px; font-size: 12px; }
 
   /* ── СТАТ БОКСЫ (Case Example) ──────────────────────────────────────
@@ -671,9 +672,9 @@ ul { list-style: none; }
      thumb-radius : скругление главного превью кейса
      frame-radius : скругление фото в сетке (6 штук снизу)
      ─────────────────────────────────────────────────────────────────── */
-  .case-thumb-wrap { --thumb-radius: 24px; }
+  .case-thumb-wrap { --thumb-radius: 10px; }
   .case-thumb-wrap.reveal.visible { filter: none; }
-  .frame-img       { --frame-radius: 24px; }
+  .frame-img       { --frame-radius: 10px; }
 
 /* ══════════════════════════════════════════════
    СТРУКТУРА — обычно не трогай
@@ -692,7 +693,7 @@ ul { list-style: none; }
   .profile-info-col { height: auto; }
   .info-card { flex-shrink: 0; }
   .info-card.subs-card { flex: 0 0 auto; min-height: 0; overflow: visible; }
-  .subs-top .subs-pill { transform: none; }
+  .subs-top .subs-pill { transform: translate(var(--c610-x, 0px), var(--c610-y, 0px)); --c610-x: 0px; --c610-y: 0px; }
   .social-icon-btn { width: 56px; height: 56px; border-radius: 12px; }
   .social-icon-btn img { width: 34px; height: 34px; }
   .profile-text { grid-template-columns: 1fr; margin-top: 24px; }
@@ -820,17 +821,17 @@ ul { list-style: none; }
   <div class="profile-text">
     <!-- Desktop -->
     <p class="reveal desktop-only" style="--reveal-delay:0ms">For Jeff Nippard's latest video series, I recreated his<br>new gym facility in 3D by using a video walkthrough<br>and floor plans, translating a real physical space<br>into a detailed motion graphics asset, which was<br>used as a title card for a video.</p>
-    <p class="reveal desktop-only" style="--reveal-delay:80ms">Mr. Beast's production style was one<br>of the references and this kind of visual allowed<br>to establish a high level of video quality<br>from the first section of the video.</p>
+    <p class="reveal desktop-only" style="--reveal-delay:80ms">Mr. Beast's production style was one<br>of the references and this kind of visual allowed to establish a high level<br> of content quality from the first section<br> of the video.</p>
     <!-- Mobile -->
     <p class="reveal mobile-only" style="--reveal-delay:0ms">For Jeff Nippard's latest video series,
 I recreated his new gym facility in 3D
-<br>by using a video walkthrough and floor<br> plans, translating a real physical space<br>
-into a detailed motion graphics asset,<br> which was used as a title card for a video.</p>
+<br>by using a video walkthrough and floor plans,<br> translating a real physical space<br>
+into a detailed motion graphics asset, which<br> was used as a title card for a video.</p>
     <p class="reveal mobile-only" style="--reveal-delay:80ms">Mr. Beast's production style
 was one<br> of the references and
 this kind of visual <br> allowed
 to establish a high level
-of video<br> quality from the first
+of content<br> quality from the first
 section of the video.</p>
   </div>
 
