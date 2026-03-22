@@ -551,6 +551,12 @@ ul { list-style: none; }
 .footer-location { font-size: 14px; font-weight: 400; color: var(--muted); line-height: 1.7; white-space: nowrap; }
 
 /* ══════════════════════════════════════════════
+   DESKTOP / MOBILE TEXT VERSIONS
+══════════════════════════════════════════════ */
+.desktop-only { display: block; }
+.mobile-only  { display: none; }
+
+/* ══════════════════════════════════════════════
    ANIMATIONS
 ══════════════════════════════════════════════ */
 
@@ -663,6 +669,9 @@ ul { list-style: none; }
 /* ══════════════════════════════════════════════
    СТРУКТУРА — обычно не трогай
 ══════════════════════════════════════════════ */
+
+  .desktop-only { display: none; }
+  .mobile-only  { display: block; }
 
   .nav { padding: 0 24px; margin-top: 12px; }
   .nav-links { display: none; }
@@ -788,17 +797,19 @@ ul { list-style: none; }
 
   <!-- Two-col text -->
   <div class="profile-text">
-    <p class="reveal" style="--reveal-delay:0ms">For Jeff Nippard's latest video series,
-I recreated his <br> new gym facility in 3D
-by using a video walkthrough <br> and floor
-plans, translating a real physical space<br>
-into a detailed motion graphics asset,
-which was <br> used as a title card for a video.</p>
-    <p class="reveal" style="--reveal-delay:80ms">Mr. Beast's production style
+    <!-- Desktop -->
+    <p class="reveal desktop-only" style="--reveal-delay:0ms">For Jeff Nippard's latest video series, I recreated his<br>new gym facility in 3D by using a video walkthrough<br>and floor plans, translating a real physical space<br>into a detailed motion graphics asset, which was<br>used as a title card for a video.</p>
+    <p class="reveal desktop-only" style="--reveal-delay:80ms">Mr. Beast's production style was one<br>of the references and this kind of visual allowed<br>to establish a high level of video quality<br>from the first section of the video.</p>
+    <!-- Mobile -->
+    <p class="reveal mobile-only" style="--reveal-delay:0ms">For Jeff Nippard's latest video series,
+I recreated his new gym facility in 3D
+<br>by using a video walkthrough and floor<br> plans, translating a real physical space<br>
+into a detailed motion graphics asset,<br> which was used as a title card for a video.</p>
+    <p class="reveal mobile-only" style="--reveal-delay:80ms">Mr. Beast's production style
 was one<br> of the references and
-this kind <br>of visual allowed
-to establish a high <br>level
-of video quality from the first<br>
+this kind of visual <br> allowed
+to establish a high level
+of video<br> quality from the first
 section of the video.</p>
   </div>
 

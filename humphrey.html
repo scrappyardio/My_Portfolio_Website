@@ -548,6 +548,12 @@ ul { list-style: none; }
 .footer-location { font-size: 14px; font-weight: 400; color: var(--muted); line-height: 1.7; white-space: nowrap; }
 
 /* ══════════════════════════════════════════════
+   DESKTOP / MOBILE TEXT VERSIONS
+══════════════════════════════════════════════ */
+.desktop-only { display: block; }
+.mobile-only  { display: none; }
+
+/* ══════════════════════════════════════════════
    ANIMATIONS
 ══════════════════════════════════════════════ */
 
@@ -660,6 +666,9 @@ ul { list-style: none; }
 /* ══════════════════════════════════════════════
    СТРУКТУРА — обычно не трогай
 ══════════════════════════════════════════════ */
+
+  .desktop-only { display: none; }
+  .mobile-only  { display: block; }
 
   .nav { padding: 0 24px; margin-top: 12px; }
   .nav-links { display: none; }
@@ -785,8 +794,12 @@ ul { list-style: none; }
 
   <!-- Two-col text -->
   <div class="profile-text">
-    <p class="reveal" style="--reveal-delay:0ms">Personal finance content relies on simplicity and<br>a clean visual language, breaking down complex<br>topics into easy-to-apply life advice. A consistent<br>and credible design is what helps Humphrey's<br>brilliant advice shine even brighter.</p>
-    <p class="reveal" style="--reveal-delay:80ms">In our collaboration, I did animations<br>and B-rolls to make the math easy<br>to follow and balance information-<br>density with relatable clips making it<br>retention-driven.</p>
+    <!-- Desktop -->
+    <p class="reveal desktop-only" style="--reveal-delay:0ms">Personal finance content relies on simplicity and<br>a clean visual language, breaking down complex<br>topics into easy-to-apply life advice. A consistent<br>and credible design is what helps Humphrey's<br>brilliant advice shine even brighter.</p>
+    <p class="reveal desktop-only" style="--reveal-delay:80ms">In our collaboration, I did animations<br>and B-rolls to make the math easy<br>to follow and balance information-<br>density with relatable clips making it<br>retention-driven.</p>
+    <!-- Mobile -->
+    <p class="reveal mobile-only" style="--reveal-delay:0ms">Personal finance content relies<br> on simplicity and a clean visual language,<br> breaking down complex topics<br> into easy-to-apply life advice. A consistent<br>and credible design is what helps Humphrey's brilliant advice shine even<br> brighter.</p>
+    <p class="reveal mobile-only" style="--reveal-delay:80ms">In our collaboration, I did animations<br>and B-rolls to make the math easy<br>to follow and balance information-<br>-density with relatable clips making it<br>retention-driven.</p>
   </div>
 
 </section>
