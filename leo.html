@@ -411,6 +411,8 @@ ul { list-style: none; }
   width: 472px; height: 247px;
   border-radius: var(--thumb-radius, 24px);
   overflow: hidden;
+  /* clip-path fixes Safari/Chrome: filter+overflow:hidden doesn't clip border-radius */
+  clip-path: inset(0 round var(--thumb-radius, 24px));
   isolation: isolate;
   filter: drop-shadow(0px 1px 3px rgba(0,0,0,0.10)) drop-shadow(0px 4px 10px rgba(0,0,0,0.07));
 }
@@ -517,7 +519,7 @@ ul { list-style: none; }
 
 .frames-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
-.frame-img { --frame-radius: 24px; }
+.frame-img { --frame-radius: 18px; }
 .frame-img {
   width: 100%; aspect-ratio: 16 / 9;
   object-fit: cover; border-radius: var(--frame-radius, 16px);
@@ -651,6 +653,7 @@ ul { list-style: none; }
      badge w/h    : размер красной пилюли (610K)
      badge font   : размер шрифта внутри пилюли
      name font    : размер имени (Leonid Kim, MD)
+     name-x/y     : позиция имени по горизонтали / вертикали
      ─────────────────────────────────────────────────────────────────── */
   .profile-card-wrap { width: 100%; height: auto; aspect-ratio: 1; }
   .inner-photo-rect  { height: calc(100% - 80px); }
@@ -659,8 +662,8 @@ ul { list-style: none; }
   .av-value          { font-size: 28px; }
   .av-label          { font-size: 11px; }
   .profile-card-bottom { top: auto; bottom: 12px; }
-  .profile-sub-badge { width: 74px; height: 26px; font-size: 16px; }
-  .profile-name      { font-size: 20px; }
+  .profile-sub-badge { width: 74px; height: 26px; font-size: 16px; --pill-x: 0px; --pill-y: 12px; }
+  .profile-name      { font-size: 20px; --name-x: 0px; --name-y: 6px; }
 
   /* ── ГРАФИК ПОДПИСЧИКОВ ─────────────────────────────────────────────
      chart height : высота графика в пикселях
@@ -671,7 +674,7 @@ ul { list-style: none; }
   .chart-svg-wrap { position: relative; height: 140px; min-height: 140px; flex: none; }
   .chart-layer    { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: fill; }
   .chart-160k     { top: 100px !important; left: 0 !important; }
-  .chart-dot      { width: 16px; height: 16px; --dot-top: -6px; --dot-right: 6px; }
+  .chart-dot      { width: 16px; height: 16px; --dot-top: -8px; --dot-right: 18px; }
   .chart-axis     { margin-top: 8px; font-size: 12px; }
 
   /* ── СТАТ БОКСЫ (Case Example) ──────────────────────────────────────
@@ -684,6 +687,13 @@ ul { list-style: none; }
   .stat-value { font-size: 26px; transform: none; }
   .stat-label { font-size: 12px; transform: none; }
   .stat-box   { width: auto; height: auto; padding: 16px 14px; border-radius: 20px; gap: 10px; transform: none; }
+
+  /* ── КЕЙС МЕДИА ─────────────────────────────────────────────────────
+     thumb-radius : скругление главного превью кейса
+     frame-radius : скругление фото в сетке (6 штук снизу)
+     ─────────────────────────────────────────────────────────────────── */
+  .case-thumb-wrap { --thumb-radius: 10px; }
+  .frame-img       { --frame-radius: 10px; }
 
 /* ══════════════════════════════════════════════
    СТРУКТУРА — обычно не трогай
@@ -816,12 +826,8 @@ ul { list-style: none; }
 
   <!-- Two-col text -->
   <div class="profile-text">
-    <!-- Desktop -->
-    <p class="reveal desktop-only" style="--reveal-delay:0ms">Health-related content does not have an obvious<br>formula for success. Nevertheless, a structured,<br>relevant, and most importantly - consistent approach<br>helped Leonid Kim's channel grow.</p>
-    <p class="reveal desktop-only" style="--reveal-delay:80ms">In our collaboration, I used<br>a combination of diverse animations<br>and B-rolls to help visualize complex<br>topics while maintaining&nbsp;retention.</p>
-    <!-- Mobile -->
-    <p class="reveal mobile-only" style="--reveal-delay:0ms">Health-related content does not have an obvious formula for success. Nevertheless,<br> a structured, relevant, and most importantly consistent approach helped Leonid Kim's channel grow.</p>
-    <p class="reveal mobile-only" style="--reveal-delay:80ms">In our collaboration, I used a combination<br>of diverse animations and B-rolls to help<br>visualize complex topics while maintaining<br>retention.</p>
+    <p class="reveal" style="--reveal-delay:0ms">Health-related content does not have an obvious formula for success. Nevertheless,<br> a structured, relevant, and most importantly consistent approach helped Leonid Kim's channel grow.</p>
+    <p class="reveal" style="--reveal-delay:80ms">In our collaboration, I used a combination<br>of diverse animations and B-rolls to help<br>visualize complex topics while maintaining<br>retention.</p>
   </div>
 
 </section>

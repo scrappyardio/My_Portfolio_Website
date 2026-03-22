@@ -632,6 +632,7 @@ ul { list-style: none; }
      badge w/h    : размер красной пилюли (8.2M)
      badge font   : размер шрифта внутри пилюли
      name font    : размер имени (Jeff Nippard)
+     name-x/y     : позиция имени по горизонтали / вертикали
      ─────────────────────────────────────────────────────────────────── */
   .profile-card-wrap { width: 100%; height: auto; aspect-ratio: 1; }
   .inner-photo-rect  { height: calc(100% - 80px); }
@@ -640,8 +641,8 @@ ul { list-style: none; }
   .av-value          { font-size: 28px; }
   .av-label          { font-size: 11px; }
   .profile-card-bottom { top: auto; bottom: 12px; }
-  .profile-sub-badge { width: 88px; height: 32px; font-size: 20px; }
-  .profile-name      { font-size: 22px; }
+  .profile-sub-badge { width: 88px; height: 32px; font-size: 20px; --pill-x: 0px; --pill-y: 15px; }
+  .profile-name      { font-size: 22px; --name-x: 0px; --name-y: 12px; }
 
   /* ── ГРАФИК ПОДПИСЧИКОВ ─────────────────────────────────────────────
      chart height : высота графика в пикселях
@@ -665,6 +666,13 @@ ul { list-style: none; }
   .stat-value { font-size: 26px; transform: none; }
   .stat-label { font-size: 12px; transform: none; }
   .stat-box   { width: auto; height: auto; padding: 16px 14px; border-radius: 20px; gap: 10px; transform: none; }
+
+  /* ── КЕЙС МЕДИА ─────────────────────────────────────────────────────
+     thumb-radius : скругление главного превью кейса
+     frame-radius : скругление фото в сетке (6 штук снизу)
+     ─────────────────────────────────────────────────────────────────── */
+  .case-thumb-wrap { --thumb-radius: 24px; }
+  .frame-img       { --frame-radius: 24px; }
 
 /* ══════════════════════════════════════════════
    СТРУКТУРА — обычно не трогай
