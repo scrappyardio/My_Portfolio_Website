@@ -685,7 +685,11 @@ ul { list-style: none; }
   .nav { padding: 0 24px; margin-top: 12px; }
   .nav-links { display: none; }
   .section { padding: 0 20px; }
-  .section-label { font-size: 22px; margin-left: 0; margin-bottom: 24px; }
+  .section-label { font-size: 22px; margin-bottom: 20px; }
+  /* ── КОНТРОЛЛЕРЫ ОТСТУПА ЗАГОЛОВКОВ СЕКЦИЙ (margin-left) ── */
+  #profile .section-label { margin-left: 10px; }
+  #case    .section-label { margin-left: 10px; }
+  #frames  .section-label { margin-left: 10px; }
   .profile-grid { grid-template-columns: 1fr; }
   .profile-info-col { height: auto; }
   .info-card { flex-shrink: 0; }
@@ -693,13 +697,13 @@ ul { list-style: none; }
   .subs-top .subs-pill { transform: translate(var(--c610-x, 0px), var(--c610-y, 0px)); --c610-x: -10px; --c610-y: 3px; }
   .social-icon-btn { width: 56px; height: 56px; border-radius: 12px; }
   .social-icon-btn img { width: 34px; height: 34px; }
-  .profile-text { grid-template-columns: 1fr; margin-top: 24px; }
+  .profile-text { grid-template-columns: 1fr; margin-top: 20px; }
   .profile-text p { font-size: 17px; line-height: 1.6; }
   .case-row { grid-template-columns: 1fr; }
   .case-thumb-wrap { width: 100%; height: auto; aspect-ratio: 472/247; }
-  .case-title { font-size: 22px; margin-bottom: 8px; transform: none; }
+  .case-title { font-size: 22px; margin-bottom: 12px; transform: none; }
   .case-title.reveal.visible { transform: none; }
-  .case-content { gap: 20px; justify-content: flex-start; }
+  .case-content { gap: 0px; justify-content: flex-start; }
   .case-stats { grid-template-columns: repeat(3, 1fr); gap: 10px; }
   .frames-grid { gap: 10px; }
   .cta { padding: 0 24px; gap: 20px; }
