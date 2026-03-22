@@ -626,19 +626,26 @@ ul { list-style: none; }
 ══════════════════════════════════════════════ */
 @media (max-width: 768px) {
 
-  /* ─── Nav ─── */
-  .nav { padding: 0 24px; margin-top: 12px; }
-  .nav-links { display: none; }
+/* ══════════════════════════════════════════════
+   МОБИЛЬНЫЕ КОНТРОЛЛЕРЫ — меняй только здесь
+══════════════════════════════════════════════ */
 
-  /* ─── Sections ─── */
-  .section { padding: 0 20px; }
-  .section-label { font-size: 22px; margin-left: 0; margin-bottom: 24px; }
-  #case { margin-top: 56px; }
-
-  /* ─── Profile grid → single column ─── */
-  .profile-grid { grid-template-columns: 1fr; }
-
-  /* ─── Photo card ─── */
+  /* ── ФОТО КАРТОЧКА ─────────────────────────────────────────────────────
+     aspect-ratio : форма карточки (1 = квадрат | 5/4 = чуть выше)
+     ─ ФОТО ─
+     top          : отступ фото от верха внутреннего прямоугольника
+     width offset : 100% минус это число = ширина фото (место для виджета справа)
+     ─ ВИДЖЕТ "2025 VIEWS" ─
+     top / right  : позиция виджета внутри карточки
+     width/height : размер виджета
+     av-value     : размер числа (33M)
+     av-label     : размер подписи (2025 VIEWS)
+     ─ ИМЯ И БЕЙДЖ ─
+     bottom       : расстояние от низа карточки до имени/бейджа
+     badge w/h    : размер красной пилюли (610K)
+     badge font   : размер шрифта внутри пилюли
+     name font    : размер имени (Leonid Kim, MD)
+     ─────────────────────────────────────────────────────────────────── */
   .profile-card-wrap { width: 100%; height: auto; aspect-ratio: 1; }
   .inner-photo-rect  { height: calc(100% - 80px); }
   .profile-photo     { top: 10px; width: calc(100% - 130px); }
@@ -646,48 +653,59 @@ ul { list-style: none; }
   .av-value          { font-size: 28px; }
   .av-label          { font-size: 11px; }
   .profile-card-bottom { top: auto; bottom: 12px; }
-  .profile-sub-badge { font-size: 20px; width: 88px; height: 32px; }
+  .profile-sub-badge { width: 88px; height: 32px; font-size: 20px; }
   .profile-name      { font-size: 22px; }
 
-  /* ─── Info column ─── */
+  /* ── ГРАФИК ПОДПИСЧИКОВ ─────────────────────────────────────────────
+     chart height : высота графика в пикселях
+     160K top     : вертикальная позиция пилюли 160K (от верха графика)
+     160K left    : горизонтальная позиция пилюли 160K
+     dot size     : размер зелёной точки на графике
+     ─────────────────────────────────────────────────────────────────── */
+  .chart-svg-wrap { position: relative; height: 140px; min-height: 140px; flex: none; }
+  .chart-layer    { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: fill; }
+  .chart-160k     { top: 100px !important; left: 0 !important; }
+  .chart-dot      { width: 16px; height: 16px; --dot-top: -6px; --dot-right: 6px; }
+  .chart-axis     { margin-top: 8px; font-size: 12px; }
+
+  /* ── СТАТ БОКСЫ (Case Example) ──────────────────────────────────────
+     stat-value font : размер числа (5.2M, 139K, 2025)
+     stat-label font : размер подписи (VIEWS, LIKES, YEAR)
+     padding         : внутренние отступы
+     border-radius   : скругление углов
+     gap             : расстояние между числом и подписью
+     ─────────────────────────────────────────────────────────────────── */
+  .stat-value { font-size: 26px; transform: none; }
+  .stat-label { font-size: 12px; transform: none; }
+  .stat-box   { width: auto; height: auto; padding: 16px 14px; border-radius: 20px; gap: 10px; transform: none; }
+
+/* ══════════════════════════════════════════════
+   СТРУКТУРА — обычно не трогай
+══════════════════════════════════════════════ */
+
+  .nav { padding: 0 24px; margin-top: 12px; }
+  .nav-links { display: none; }
+  .section { padding: 0 20px; }
+  .section-label { font-size: 22px; margin-left: 0; margin-bottom: 24px; }
+  #case { margin-top: 56px; }
+  .profile-grid { grid-template-columns: 1fr; }
   .profile-info-col { height: auto; }
   .info-card { flex-shrink: 0; }
   .info-card.subs-card { flex: 0 0 auto; min-height: 0; overflow: visible; }
-  .chart-svg-wrap { position: relative; height: 140px; min-height: 140px; flex: none; }
-  .chart-layer { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: fill; }
-  .chart-160k { top: 100px !important; left: 0 !important; }
-  .chart-dot { --dot-top: -6px; --dot-right: 6px; }
-  .chart-dot { width: 16px; height: 16px; }
-  .chart-axis { margin-top: 8px; font-size: 12px; }
   .subs-top .subs-pill { transform: none; }
   .social-icon-btn { width: 56px; height: 56px; border-radius: 12px; }
   .social-icon-btn img { width: 34px; height: 34px; }
-
-  /* ─── Profile text → single column ─── */
   .profile-text { grid-template-columns: 1fr; margin-top: 24px; }
   .profile-text p { font-size: 17px; line-height: 1.6; }
-
-  /* ─── Case row → single column ─── */
   .case-row { grid-template-columns: 1fr; }
   .case-thumb-wrap { width: 100%; height: auto; aspect-ratio: 472/247; }
   .case-title { font-size: 22px; margin-bottom: 16px; transform: none; }
   .case-title.reveal.visible { transform: none; }
   .case-content { gap: 20px; justify-content: flex-start; }
-
-  /* ─── Stat boxes ─── */
   .case-stats { grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .stat-box   { width: auto; height: auto; padding: 16px 14px; border-radius: 20px; gap: 10px; transform: none; }
-  .stat-label { font-size: 12px; transform: none; }
-  .stat-value { font-size: 26px; transform: none; }
-
-  /* ─── Frames grid — keep 2 col ─── */
   .frames-grid { gap: 10px; }
-
-  /* ─── CTA ─── */
   .cta { padding: 0 24px; margin-top: 56px; gap: 20px; }
   .cta-title { font-size: 32px; }
-
-  /* ─── Footer ─── */
   .footer-wrap { padding: 0 16px 32px; margin-top: 56px; }
   .footer { grid-template-columns: 1fr; row-gap: 28px; padding: 28px 24px; border-radius: 14px; }
 }
