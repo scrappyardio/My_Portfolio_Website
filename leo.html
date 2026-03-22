@@ -620,6 +620,64 @@ ul { list-style: none; }
   filter: blur(0px) drop-shadow(0px 1px 3px rgba(0,0,0,0.10)) drop-shadow(0px 4px 10px rgba(0,0,0,0.07));
 }
 
+/* ══════════════════════════════════════════════
+   MOBILE — max-width 768px
+══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ─── Nav ─── */
+  .nav { padding: 0 24px; margin-top: 12px; }
+  .nav-links { display: none; }
+
+  /* ─── Sections ─── */
+  .section { padding: 0 20px; }
+  .section-label { font-size: 22px; margin-left: 0; margin-bottom: 24px; }
+  #case { margin-top: 56px; }
+
+  /* ─── Profile grid → single column ─── */
+  .profile-grid { grid-template-columns: 1fr; }
+
+  /* ─── Photo card ─── */
+  .profile-card-wrap { width: 100%; height: auto; aspect-ratio: 1; }
+  .inner-photo-rect  { height: calc(100% - 80px); }
+  .profile-photo     { top: 10px; width: calc(100% - 130px); }
+  .annual-views      { top: 10px; right: 10px; width: 110px; height: 100px; }
+  .av-value          { font-size: 28px; }
+  .av-label          { font-size: 11px; }
+  .profile-card-bottom { top: auto; bottom: 12px; }
+  .profile-sub-badge { font-size: 20px; width: 88px; height: 32px; }
+  .profile-name      { font-size: 22px; }
+
+  /* ─── Info column ─── */
+  .profile-info-col { height: auto; }
+
+  /* ─── Profile text → single column ─── */
+  .profile-text { grid-template-columns: 1fr; margin-top: 24px; }
+  .profile-text p { font-size: 17px; line-height: 1.6; }
+
+  /* ─── Case row → single column ─── */
+  .case-row { grid-template-columns: 1fr; }
+  .case-thumb-wrap { width: 100%; height: auto; aspect-ratio: 472/247; }
+  .case-title { font-size: 22px; margin-bottom: 16px; transform: none; }
+
+  /* ─── Stat boxes ─── */
+  .case-stats { grid-template-columns: repeat(3, 1fr); }
+  .stat-box   { width: auto; height: auto; padding: 14px 12px; border-radius: 20px; gap: 12px; }
+  .stat-value { font-size: 26px; }
+  .stat-label { font-size: 12px; }
+
+  /* ─── Frames grid — keep 2 col ─── */
+  .frames-grid { gap: 10px; }
+
+  /* ─── CTA ─── */
+  .cta { padding: 0 24px; margin-top: 56px; gap: 20px; }
+  .cta-title { font-size: 32px; }
+
+  /* ─── Footer ─── */
+  .footer-wrap { padding: 0 16px 32px; margin-top: 56px; }
+  .footer { grid-template-columns: 1fr; row-gap: 28px; padding: 28px 24px; border-radius: 14px; }
+}
+
 </style>
 </head>
 <body>

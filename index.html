@@ -993,6 +993,10 @@ img[src*="cn_tower"]      { filter: drop-shadow(0px 0px 0px rgba(0,0,0,0)); }
   .dock-item.hovered .icon-frame { transform: none !important; }
   .dock-dot { display: none; }
 
+  /* ─── Border radius ─── */
+  :root { --card-radius: 22px; }
+  .footer { border-radius: 14px; }
+
   /* ─── Sections ─── */
   .section { padding: 0 20px; }
   #projects { margin-top: 56px; }
@@ -1001,8 +1005,12 @@ img[src*="cn_tower"]      { filter: drop-shadow(0px 0px 0px rgba(0,0,0,0)); }
 
   /* ─── Project cards ─── */
   .projects-row { grid-template-columns: 1fr; }
+  .card-large { aspect-ratio: 4 / 3; }
   .card-info h3 { font-size: 22px; }
   .card-info p  { font-size: 14px; margin-top: 6px; }
+  /* сброс translate на заголовках */
+  .card-info h3    { transform: none; }
+  .client-info h3  { transform: none; }
   #card-showreel .card-info  { bottom: 20px; left: 20px; }
   #card-showreel .card-arrow { top: 16px; right: 16px; }
   #card-casio .card-info     { bottom: 20px; left: 20px; }
