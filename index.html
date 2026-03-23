@@ -1349,6 +1349,8 @@ img[src*="cn_tower"]      { filter: drop-shadow(0px 0px 0px rgba(0,0,0,0)); }
 
 <script>
   /* ── Scroll reveal ── */
+  window.scrollTo(0, 0);
+
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1359,6 +1361,13 @@ img[src*="cn_tower"]      { filter: drop-shadow(0px 0px 0px rgba(0,0,0,0)); }
   }, { threshold: 0 });
 
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight) el.classList.add('visible');
+    });
+  });
 
 
   /* ── Dock hint: волна пока dock появляется ── */
