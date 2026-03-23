@@ -557,7 +557,7 @@ ul { list-style: none; }
 .footer-wrap { margin-top: 96px; padding: 0 var(--side-pad) 48px; }
 .footer {
   background: var(--footer-bg); border-radius: 20px; padding: 40px 65px;
-  display: grid; grid-template-columns: 1fr auto auto auto; column-gap: 0;
+  display: grid; grid-template-columns: auto auto auto auto; column-gap: 0;
   justify-content: space-between;
   align-items: start; border: 1px solid rgba(0,0,0,0.11);
   box-shadow: 0 2px 4px rgba(0,0,0,0.09);
@@ -576,10 +576,7 @@ ul { list-style: none; }
 .footer-location { font-size: 14px; font-weight: 400; color: var(--muted); line-height: 1.7; white-space: nowrap; }
 
 @media (max-width: 1200px) and (min-width: 769px) {
-  .footer { padding: 32px; grid-template-columns: 1fr 1fr; gap: 28px 40px; }
-  .footer-nav { padding-left: 0; }
-  .footer-socials { padding-left: 0; }
-  .footer-location { padding-left: 0; text-align: right; }
+  .footer-location { display: none; }
 }
 
 /* ══════════════════════════════════════════════

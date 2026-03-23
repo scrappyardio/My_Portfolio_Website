@@ -847,7 +847,7 @@ img[src*="cn_tower"]      { filter: drop-shadow(0px 0px 0px rgba(0,0,0,0)); }
   border-radius: 20px;
   padding: 40px 65px;
   display: grid;
-  grid-template-columns: 1fr auto auto auto;
+  grid-template-columns: auto auto auto auto;
   column-gap: 0;
   align-items: start;
   border: 1px solid rgba(0, 0, 0, 0.11);
@@ -938,10 +938,7 @@ img[src*="cn_tower"]      { filter: drop-shadow(0px 0px 0px rgba(0,0,0,0)); }
 }
 
 @media (max-width: 1200px) and (min-width: 769px) {
-  .footer { padding: 32px; grid-template-columns: 1fr 1fr; gap: 28px 40px; }
-  .footer-nav { padding-left: 0; }
-  .footer-socials { padding-left: 0; }
-  .footer-location { padding-left: 0; text-align: right; }
+  .footer-location { display: none; }
 }
 
 /* ══════════════════════════════════════════════
