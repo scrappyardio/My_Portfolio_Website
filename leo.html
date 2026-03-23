@@ -44,11 +44,7 @@
   --footer-bg:   #F3F3F3;
   --card-radius: 45px;
   --nav-h:       64px;
-  --side-pad:    240px;
-}
-
-@media (max-width: 1200px) and (min-width: 769px) {
-  :root { --side-pad: 60px; }
+  --side-pad:    clamp(60px, calc((100vw - 960px) / 2), 240px);
 }
 
 /* ══════════════════════════════════════════════
@@ -575,7 +571,7 @@ ul { list-style: none; }
 .social-url { font-size: 14px; font-weight: 400; color: var(--muted); line-height: 1.2; white-space: nowrap; }
 .footer-location { font-size: 14px; font-weight: 400; color: var(--muted); line-height: 1.7; white-space: nowrap; }
 
-@media (max-width: 1200px) and (min-width: 769px) {
+@media (max-width: 1400px) and (min-width: 769px) {
   .footer { padding: 32px; }
   .footer-nav { padding-left: 40px; }
   .footer-socials { padding-left: 40px; }
